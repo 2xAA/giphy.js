@@ -214,8 +214,6 @@
 				url += '?api_key=' + self.key;
 			}
 			
-			console.log(url);
-
 			var req = new XMLHttpRequest();
 			req.open("GET", url, true);
 			req.responseType = "json";
