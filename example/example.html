@@ -76,7 +76,7 @@
 		<script src="./codemirror/codemirror.js"></script>
 		<script src="./codemirror/javascript.js"></script>
 		<script src="./formatJSON.js"></script>
-		<script src="../giphy.js"></script>
+		<script src="../giphy.min.js"></script>
 	</head>
 	
 	<body>
@@ -220,6 +220,38 @@
 					q: 'chiptune',
 					limit: 10,
 					offset: 0,
+					rating: 'c',
+					fmt: 'json'
+				},
+				success,
+				error);
+			});
+
+			$.getElementById('giphy-stickers-roulette').addEventListener('click', function() {
+				giphy.stickers.roulette({
+					q: 'chiptune',
+					rating: 'c',
+					fmt: 'json'
+				},
+				success,
+				error);
+			});
+
+			$.getElementById('giphy-stickers-trending').addEventListener('click', function() {
+				giphy.stickers.trending({
+					s: 'chiptune',
+					limit: 10,
+					offset: 0,
+					rating: 'c',
+					fmt: 'json'
+				},
+				success,
+				error);
+			});
+
+			$.getElementById('giphy-stickers-translate').addEventListener('click', function() {
+				giphy.stickers.translate({
+					s: 'chiptune',
 					rating: 'c',
 					fmt: 'json'
 				},
