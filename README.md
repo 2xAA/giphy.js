@@ -8,7 +8,7 @@ Please refer to [Giphy's API documentation](https://github.com/Giphy/GiphyAPI) f
 
 Include giphy.min.js on your page. Create a new instance of giphy.js and initialise it with an API key **(do not use the example key seen here provided by giphy in production)**.
 
-```
+```JavaScript
 var giphy = new Giphy('dc6zaTOxFJmzC');
 ```
 
