@@ -26,7 +26,7 @@ Search: [https://github.com/Giphy/GiphyAPI#search-endpont](https://github.com/Gi
 giphy.search({
 	q: 'chiptune',
 	offset: 0,
-	rating: 'c',
+	rating: 'y',
 	fmt: 'json',
 	'limit': 10
 },
@@ -39,7 +39,7 @@ Get GIF by ID: [https://github.com/Giphy/GiphyAPI#get-gifs-by-id-endpoint](https
 ```JavaScript
 giphy.gif({
 	id: 'xTiTnhJJ6xg5e1FgD6',
-	rating: 'c',
+	rating: 'y',
 	fmt: 'json'
 },
 success,
@@ -54,7 +54,7 @@ giphy.gifs({
 		'xTiTnhJJ6xg5e1FgD6',
 		'xTiTnmMja0SoALNSpO'
 	],
-	rating: 'c',
+	rating: 'y',
 	fmt: 'json'
 },
 success,
@@ -66,7 +66,7 @@ Translate: [https://github.com/Giphy/GiphyAPI#translate-endpoint](https://github
 ```JavaScript
 giphy.translate({
 	s: 'good job',
-	rating: 'c',
+	rating: 'y',
 	fmt: 'json'	
 },
 success,
@@ -77,7 +77,7 @@ Random: [https://github.com/Giphy/GiphyAPI#random-endpoint](https://github.com/G
 
 ```JavaScript
 giphy.random({
-	rating: 'c',
+	rating: 'y',
 	fmt: 'json',
 	tag: 'chiptune'
 },
@@ -100,7 +100,7 @@ giphy.stickers.search({
 	q: 'chiptune',
 	limit: 10,
 	offset: 0,
-	rating: 'c',
+	rating: 'y',
 	fmt: 'json'
 },
 success,
@@ -112,7 +112,7 @@ STICKER Roulette (Random): [https://github.com/Giphy/GiphyAPI#sticker-roulette-r
 ```JavaScript
 giphy.stickers.roulette({
 	q: 'chiptune',
-	rating: 'c',
+	rating: 'y',
 	fmt: 'json'
 },
 success,
@@ -126,7 +126,7 @@ giphy.stickers.trending({
 	s: 'chiptune',
 	limit: 10,
 	offset: 0,
-	rating: 'c',
+	rating: 'y',
 	fmt: 'json'
 },
 success,
@@ -138,7 +138,7 @@ STICKER Translate: [https://github.com/Giphy/GiphyAPI#sticker-translate-endpoint
 ```JavaScript
 giphy.stickers.translate({
 	s: 'good job',
-	rating: 'c',
+	rating: 'y',
 	fmt: 'json'
 },
 success,
