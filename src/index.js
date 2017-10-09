@@ -1,1 +1,1 @@
-module.exports = require('./main').default;
+module.exports = require('./giphy').default;
