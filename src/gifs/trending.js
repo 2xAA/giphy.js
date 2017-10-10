@@ -1,8 +1,9 @@
 // Trending GIFs
 // --
-// https://github.com/Giphy/GiphyAPI#trending-gifs-endpoint
+// path: /v1/gifs/trending
+// docs: https://developers.giphy.com/docs/#operation--gifs-trending-get
 
 export default function translate(succCb, errCb) {
   const url = 'gifs/trending';
-  this.request(url, {}, succCb, errCb);
+  return this.request(url, {}, succCb, errCb);
 };

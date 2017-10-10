@@ -19,5 +19,5 @@ export default function search(params, succCb, errCb) {
     }
   }
 
-  this.request(url, params, succCb, errCb);
+  return this.request(url, params, succCb, errCb);
 };

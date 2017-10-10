@@ -1,6 +1,7 @@
 // Translate
 // --
-// https://github.com/Giphy/GiphyAPI#translate-endpoint
+// path: /v1/gifs/translate
+// docs: https://developers.giphy.com/docs/#operation--gifs-translate-get
 
 export default function translate(params, succCb, errCb) {
   let url = 'gifs/translate';
@@ -18,5 +19,5 @@ export default function translate(params, succCb, errCb) {
     }
   }
 
-  this.request(url, params, succCb, errCb);
+  return this.request(url, params, succCb, errCb);
 };

@@ -1,6 +1,7 @@
 // Random
 // --
-// https://github.com/Giphy/GiphyAPI#random-endpoint
+// path: /v1/gifs/random
+// docs: https://developers.giphy.com/docs/#operation--gifs-random-get
 
 export default function random(params, succCb, errCb) {
   let url = 'gifs/random';
@@ -11,5 +12,5 @@ export default function random(params, succCb, errCb) {
     delete params.tag;
   }
 
-  this.request(url, params, succCb, errCb);
+  return this.request(url, params, succCb, errCb);
 };

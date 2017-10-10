@@ -22,5 +22,5 @@ export default function gifs(params, succCb, errCb) {
     }
   }
 
-  this.request(url, params, succCb, errCb);
+  return this.request(url, params, succCb, errCb);
 };

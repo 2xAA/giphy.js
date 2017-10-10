@@ -7,14 +7,11 @@ export default function gif(params, succCb, errCb) {
   let url = 'gifs?ids=';
 
   // Check for required parameters
-  if('ids' in params) {
-    params.ids.forEach((id, idx) => {
-      url += id;
-      if(idx + 1 !== params.ids.length) url += ',';
-    });
-    delete params.ids;
+  if('id' in params) {
+        url += params.id;
+        delete params.id;
   } else {
-    const eMsg = 'giphy.js: No IDs.';
+    const eMsg = 'giphy.js: No ID.';
     if(errCb) {
       errCb(eMsg);
     } else {
@@ -22,5 +19,5 @@ export default function gif(params, succCb, errCb) {
     }
   }
 
-  this.request(url, params, succCb, errCb);
+  return this.request(url, params, succCb, errCb);
 };
