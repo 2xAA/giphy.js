@@ -20,4 +20,4 @@ export default function translate(params, succCb, errCb) {
   }
 
   return this.request(url, params, succCb, errCb);
-};
+}

@@ -6,4 +6,4 @@
 export default function translate(succCb, errCb) {
   const url = 'gifs/trending';
   return this.request(url, {}, succCb, errCb);
-};
+}

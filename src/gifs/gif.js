@@ -8,8 +8,8 @@ export default function gif(params, succCb, errCb) {
 
   // Check for required parameters
   if('id' in params) {
-        url += params.id;
-        delete params.id;
+    url += params.id;
+    delete params.id;
   } else {
     const eMsg = 'giphy.js: No ID.';
     if(errCb) {
@@ -20,4 +20,4 @@ export default function gif(params, succCb, errCb) {
   }
 
   return this.request(url, params, succCb, errCb);
-};
+}

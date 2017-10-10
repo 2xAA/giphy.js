@@ -11,7 +11,7 @@ export default function random(params, succCb, errCb) {
     url += `?tag=${params.tag}`;
     delete params.tag;
   } else {
-    var eMsg = 'giphy.js: No query.';
+    const eMsg = 'giphy.js: No query.';
     if(errCb) {
       errCb(eMsg);
     } else {
@@ -20,4 +20,4 @@ export default function random(params, succCb, errCb) {
   }
 
   return this.request(url, params, succCb, errCb);
-};
+}

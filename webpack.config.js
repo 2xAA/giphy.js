@@ -1,17 +1,31 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+
+function resolve(dir) {
+  return path.join(__dirname, './', dir);
+}
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     filename: 'giphy.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'giphy',
+    library: 'Giphy',
     libraryTarget: 'umd'
   },
 
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [resolve('src')],
+        options: {
+          formatter: require('eslint-friendly-formatter')
+        }
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
@@ -26,10 +40,11 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin({ title: 'giphy.js' })
+    new HtmlWebpackPlugin({ title: 'giphy.js' }),
+    new FriendlyErrorsPlugin()
   ],
 
-  devtool: "source-map", // enum
+  devtool: 'source-map', // enum
   // enhance debugging by adding meta info for the browser devtools
   // source-map most detailed at the expense of build speed.
 
@@ -38,10 +53,10 @@ module.exports = {
   // the entry and module.rules.loader option
   //   is resolved relative to this directory
 
-  target: "web", // enum
+  target: 'web', // enum
   // changes chunk loading behavior and available modules
 
-  stats: "errors-only",
+  stats: 'errors-only',
 
   devServer: {
     contentBase: path.join(__dirname, 'public'), // boolean | string | array, static file location

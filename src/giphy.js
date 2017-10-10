@@ -1,13 +1,13 @@
 import gifs from './gifs';
 import stickers from './stickers';
 
-class giphy {
+class Giphy {
   constructor(key) {
     this.key = key;
     this.stickers.request = this.request.bind(this);
   }
 
-  get apiVersion() {
+  get apiVersion() { //eslint-disable-line
     return 1;
   }
 
@@ -17,7 +17,7 @@ class giphy {
 
   request(urlParams, params, succCb, errCb) {
     return new Promise((resolve, reject) => {
-      let url = this.url;
+      let { url } = this;
       let hasStartingValue = false;
 
       url += urlParams;
@@ -25,14 +25,14 @@ class giphy {
       // Check for starting '?'
       if(url.indexOf('?') > -1) hasStartingValue = true;
 
-      for(let key in params) {
+      Object.keys(params).forEach((key) => {
         if(hasStartingValue) {
           url += `&${key}=${params[key]}`;
         } else {
           url += `?${key}=${params[key]}`;
           hasStartingValue = true;
         }
-      }
+      });
 
       if(hasStartingValue) {
         url += `&api_key=${this.key}`;
@@ -44,7 +44,7 @@ class giphy {
       req.open('GET', url, true);
       req.responseType = 'json';
       req.onload = () => {
-        const status = req.status;
+        const { status } = req;
 
         if (status === 200) {
           if(succCb) {
@@ -62,13 +62,13 @@ class giphy {
       };
       req.send();
     });
-  };
-};
+  }
+}
 
-giphy.prototype.stickers = new stickers();
+Giphy.prototype.stickers = new stickers(); //eslint-disable-line
 
 Object.keys(gifs).forEach((key) => {
-  giphy.prototype[key] = gifs[key];
+  Giphy.prototype[key] = gifs[key];
 });
 
-export default giphy;
+export default Giphy;

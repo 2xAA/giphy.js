@@ -23,4 +23,4 @@ export default function gifs(params, succCb, errCb) {
   }
 
   return this.request(url, params, succCb, errCb);
-};
+}

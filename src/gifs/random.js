@@ -13,4 +13,4 @@ export default function random(params, succCb, errCb) {
   }
 
   return this.request(url, params, succCb, errCb);
-};
+}
