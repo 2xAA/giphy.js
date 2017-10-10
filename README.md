@@ -28,7 +28,7 @@ window.Giphy
 ```
 
 Then initialise with an API key:
-```
+```JavaScript
 const giphy = new Giphy('dc6zaTOxFJmzC');
 ```
 
