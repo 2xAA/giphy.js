@@ -18,7 +18,7 @@
     "url": "git+https://github.com/2xAA/giphy.js.git"
   },
   "author": "Sam Wray",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/2xAA/giphy.js/issues"
   },
