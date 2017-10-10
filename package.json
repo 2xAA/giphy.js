@@ -1,7 +1,7 @@
 {
   "name": "giphy.js",
   "version": "1.0.0",
-  "description": "Front-end JavaScript library for Giphy's API. Edit",
+  "description": "Giphy API wrapper, for the browser and Node.",
   "main": "./src/index.js",
   "browser": "./dist/giphy.js",
   "directories": {
