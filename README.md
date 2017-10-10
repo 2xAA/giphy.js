@@ -135,9 +135,9 @@ STICKER Random (formerly Roulette): [https://developers.giphy.com/docs/#operatio
 
 ```JavaScript
 giphy.stickers.random({
-	q: 'chiptune',
-	rating: 'y',
-	fmt: 'json'
+  q: 'chiptune',
+  rating: 'y',
+  fmt: 'json'
 })
   .then((response) => console.log(response))
   .catch((error) => console.error(error));
@@ -147,11 +147,11 @@ STICKER Search: [https://developers.giphy.com/docs/#operation--stickers-search-g
 
 ```JavaScript
 giphy.stickers.search({
-	q: 'chiptune',
-	limit: 10,
-	offset: 0,
-	rating: 'y',
-	fmt: 'json'
+  q: 'chiptune',
+  limit: 10,
+  offset: 0,
+  rating: 'y',
+  fmt: 'json'
 })
   .then((response) => console.log(response))
   .catch((error) => console.error(error));
@@ -161,9 +161,9 @@ STICKER Translate: [https://developers.giphy.com/docs/#operation--stickers-trans
 
 ```JavaScript
 giphy.stickers.translate({
-	s: 'good job',
-	rating: 'y',
-	fmt: 'json'
+  s: 'good job',
+  rating: 'y',
+  fmt: 'json'
 })
   .then((response) => console.log(response))
   .catch((error) => console.error(error));
@@ -173,11 +173,11 @@ STICKER Trending: [https://developers.giphy.com/docs/#operation--stickers-trendi
 
 ```JavaScript
 giphy.stickers.trending({
-	s: 'chiptune',
-	limit: 10,
-	offset: 0,
-	rating: 'y',
-	fmt: 'json'
+  s: 'chiptune',
+  limit: 10,
+  offset: 0,
+  rating: 'y',
+  fmt: 'json'
 })
   .then((response) => console.log(response))
   .catch((error) => console.error(error));
