@@ -4,21 +4,27 @@
 // docs: https://developers.giphy.com/docs/#operation--stickers-search-get
 
 export default function search(params, succCb, errCb) {
-  let url = 'stickers/search';
+  let error;
+  const parameters = Object.assign({}, params);
+
+  let urlPiece = 'stickers/search';
 
   // Check for required parameters
-  if('q' in params) {
-    url += `?q=${params.q}`;
-    delete params.q;
+  if ('q' in parameters) {
+    urlPiece += `?q=${parameters.q}`;
+    delete parameters.q;
   } else {
-    const eMsg = 'giphy.js: No query.';
-
-    if(errCb) {
-      errCb(eMsg);
-    } else {
-      console.error(eMsg);
+    error = 'giphy.js: No query.';
+    if (errCb) {
+      errCb(error);
     }
   }
 
-  return this.request(url, params, succCb, errCb);
+  return this.request({
+    error,
+    urlPiece,
+    parameters,
+    succCb,
+    errCb,
+  });
 }

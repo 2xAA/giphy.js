@@ -11,5 +11,5 @@ export default {
   gifs,
   translate,
   trending,
-  random
+  random,
 };

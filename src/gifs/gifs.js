@@ -4,23 +4,32 @@
 // docs: https://developers.giphy.com/docs/#operation--gifs-get
 
 export default function gifs(params, succCb, errCb) {
-  let url = 'gifs?ids=';
+  let error;
+  const parameters = Object.assign({}, params);
+
+  let urlPiece = 'gifs?ids=';
 
   // Check for required parameters
-  if('ids' in params) {
-    params.ids.forEach((id, idx) => {
-      url += id;
-      if(idx + 1 !== params.ids.length) url += ',';
+  if ('ids' in parameters) {
+    parameters.ids.forEach((id, idx) => {
+      urlPiece += id;
+      if (idx + 1 !== parameters.ids.length) {
+        urlPiece += ',';
+      }
     });
-    delete params.ids;
+    delete parameters.ids;
   } else {
-    const eMsg = 'giphy.js: No IDs.';
-    if(errCb) {
-      errCb(eMsg);
-    } else {
-      console.error(eMsg);
+    error = 'giphy.js: No IDs.';
+    if (errCb) {
+      errCb(error);
     }
   }
 
-  return this.request(url, params, succCb, errCb);
+  return this.request({
+    error,
+    urlPiece,
+    parameters,
+    succCb,
+    errCb,
+  });
 }

@@ -1,18 +1,20 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const formatter = require('eslint-friendly-formatter');
 
 function resolve(dir) {
   return path.join(__dirname, './', dir);
 }
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: {
+    giphy: path.resolve(__dirname, 'src/index.js'),
+  },
   output: {
-    filename: 'giphy.js',
     path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
     library: 'Giphy',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
 
   module: {
@@ -23,8 +25,8 @@ module.exports = {
         enforce: 'pre',
         include: [resolve('src')],
         options: {
-          formatter: require('eslint-friendly-formatter')
-        }
+          formatter,
+        },
       },
       {
         test: /\.js$/,
@@ -32,16 +34,16 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
-          }
-        }
-      }
-    ]
+            presets: ['env'],
+            compact: false,
+          },
+        },
+      },
+    ],
   },
 
   plugins: [
-    new HtmlWebpackPlugin({ title: 'giphy.js' }),
-    new FriendlyErrorsPlugin()
+    new FriendlyErrorsPlugin(),
   ],
 
   devtool: 'source-map', // enum
@@ -51,7 +53,7 @@ module.exports = {
   context: __dirname, // string (absolute path!)
   // the home directory for webpack
   // the entry and module.rules.loader option
-  //   is resolved relative to this directory
+  // is resolved relative to this directory
 
   target: 'web', // enum
   // changes chunk loading behavior and available modules
@@ -59,10 +61,10 @@ module.exports = {
   stats: 'errors-only',
 
   devServer: {
-    contentBase: path.join(__dirname, 'public'), // boolean | string | array, static file location
-    compress: true, // enable gzip compression
-    historyApiFallback: true, // true for index.html upon 404, object for multiple paths
-    hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
-    noInfo: true, // only errors & warns on hot reload
+    overlay: {
+      warnings: false,
+      errors: true,
+    },
+    open: true,
   },
-}
+};

@@ -4,13 +4,20 @@
 // docs: https://developers.giphy.com/docs/#operation--gifs-random-get
 
 export default function random(params, succCb, errCb) {
-  let url = 'gifs/random';
+  const parameters = Object.assign({}, params);
+
+  let urlPiece = 'gifs/random';
 
   // Check for required parameters
-  if('tag' in params) {
-    url += `?tag=${params.tag}`;
-    delete params.tag;
+  if ('tag' in parameters) {
+    urlPiece += `?tag=${parameters.tag}`;
+    delete parameters.tag;
   }
 
-  return this.request(url, params, succCb, errCb);
+  return this.request({
+    urlPiece,
+    parameters,
+    succCb,
+    errCb,
+  });
 }

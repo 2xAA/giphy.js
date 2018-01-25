@@ -15,18 +15,29 @@ class Giphy {
     return `https://api.giphy.com/v${this.apiVersion}/`;
   }
 
-  request(urlParams, params, succCb, errCb) {
+  request({
+    error,
+    urlPiece,
+    params,
+    succCb,
+    errCb,
+  }) {
     return new Promise((resolve, reject) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+
       let { url } = this;
       let hasStartingValue = false;
 
-      url += urlParams;
+      url += urlPiece;
 
       // Check for starting '?'
-      if(url.indexOf('?') > -1) hasStartingValue = true;
+      if (url.indexOf('?') > -1) hasStartingValue = true;
 
-      Object.keys(params).forEach((key) => {
-        if(hasStartingValue) {
+      Object.keys(params || {}).forEach((key) => {
+        if (hasStartingValue) {
           url += `&${key}=${params[key]}`;
         } else {
           url += `?${key}=${params[key]}`;
@@ -34,7 +45,7 @@ class Giphy {
         }
       });
 
-      if(hasStartingValue) {
+      if (hasStartingValue) {
         url += `&api_key=${this.key}`;
       } else {
         url += `?api_key=${this.key}`;
@@ -47,13 +58,13 @@ class Giphy {
         const { status } = req;
 
         if (status === 200) {
-          if(succCb) {
+          if (succCb) {
             succCb(req.response);
           }
 
           resolve(req.response);
         } else {
-          if(errCb) {
+          if (errCb) {
             errCb(status);
           }
 

@@ -8,6 +8,16 @@ Please refer to [Giphy's API documentation](https://developers.giphy.com/docs/) 
 
 giphy.js is exported as an [UMD](https://github.com/umdjs/umd).
 
+Install from npm:
+
+```JavaScript
+npm install giphy.js
+
+// or with yarn
+
+yarn add giphy.js
+```
+
 Import using one of these methods:
 
 ```JavaScript
@@ -52,7 +62,7 @@ giphy.random({
 });
 ```
 
-Please see the ```example.html``` or the [GitHub Pages site](http://2xaa.github.io/giphy.js/) for a working example.
+Please see the example page by running ```npm run dev```or the [GitHub Pages site](http://2xaa.github.io/giphy.js/) for a working example.
 
 ### Gif API
 
@@ -181,4 +191,16 @@ giphy.stickers.trending({
 })
   .then((response) => console.log(response))
   .catch((error) => console.error(error));
+```
+
+## Build instructions
+```Bash
+# install dependencies
+npm i # yarn
+
+# serve with hot reload at localhost:8080
+npm run dev # yarn run dev
+
+# build for production with minification
+npm run build # yarn run build
 ```
