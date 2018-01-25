@@ -23,16 +23,16 @@ Import using one of these methods:
 ```JavaScript
 import Giphy from 'giphy.js';
 ```
-or  
+or
 ```JavaScript
 const Giphy = require('giphy.js');
 ```
 
-To import Giphy.js in web, you can:  
+To import Giphy.js in web, you can:
 ```HTML
-<script src='giphy.js'></script>
-```  
-and access using  
+<script src="giphy.js"></script>
+```
+and access using
 ```JavaScript
 window.Giphy
 ```
