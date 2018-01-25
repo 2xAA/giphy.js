@@ -1,0 +1,46 @@
+{
+  "name": "giphy.js",
+  "version": "1.0.0",
+  "description": "Giphy API wrapper, for the browser and Node.",
+  "main": "./src/index.js",
+  "browser": "./dist/giphy.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "start": "npm run start",
+    "dev": "webpack-dev-server --content-base ./example/",
+    "build": "webpack && uglifyjs ./dist/giphy.js -c -m -o ./dist/giphy.min.js --source-map",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2xAA/giphy.js.git"
+  },
+  "author": "Sam Wray",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/2xAA/giphy.js/issues"
+  },
+  "homepage": "https://github.com/2xAA/giphy.js#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.0.2",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^3.2.2",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-webpack-plugin": "^2.30.1",
+    "uglify-js": "^3.3.8",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}

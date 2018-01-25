@@ -1,146 +1,206 @@
 # Giphy.js
 
-Giphy.js is an easy to use JavaScript wrapper for the [Giphy API](https://github.com/Giphy/GiphyAPI).
+Giphy.js is a JavaScript wrapper for the [Giphy API](https://developers.giphy.com/docs/).
 
-Please refer to [Giphy's API documentation](https://github.com/Giphy/GiphyAPI) for API usage as this JavaScript library follows it exactly at the time of last commit.
+Please refer to [Giphy's API documentation](https://developers.giphy.com/docs/) for API usage as this JavaScript library follows it exactly at the time of last commit.
 
 ## Usage
 
-Include giphy.min.js on your page. Create a new instance of giphy.js and initialise it with an API key **(do not use the example key seen here provided by giphy in production)**.
+giphy.js is exported as an [UMD](https://github.com/umdjs/umd).
+
+Install from npm:
 
 ```JavaScript
-var giphy = new Giphy('dc6zaTOxFJmzC');
+npm install giphy.js
+
+// or with yarn
+
+yarn add giphy.js
 ```
 
-## Methods with example objects
-
-In all examples, ```success``` and ```error``` are callback functions.
-
-Please see the ```example.html``` or the [GitHub Pages site](http://2xaa.github.io/giphy.js/) for a working example.
-
-### Gif API
-
-Search: [https://github.com/Giphy/GiphyAPI#search-endpont](https://github.com/Giphy/GiphyAPI#search-endpont)
+Import using one of these methods:
 
 ```JavaScript
-giphy.search({
-	q: 'chiptune',
-	offset: 0,
-	rating: 'y',
-	fmt: 'json',
-	'limit': 10
-},
-success,
-error);
+import Giphy from 'giphy.js';
 ```
-
-Get GIF by ID: [https://github.com/Giphy/GiphyAPI#get-gifs-by-id-endpoint](https://github.com/Giphy/GiphyAPI#get-gifs-by-id-endpoint)
-
+or
 ```JavaScript
-giphy.gif({
-	id: 'xTiTnhJJ6xg5e1FgD6',
-	rating: 'y',
-	fmt: 'json'
-},
-success,
-error);
+const Giphy = require('giphy.js');
 ```
 
-Get GIFs by ID: [https://github.com/Giphy/GiphyAPI#get-gif-by-id-endpoint](https://github.com/Giphy/GiphyAPI#get-gif-by-id-endpoint)
-
+To import Giphy.js in web, you can:
+```HTML
+<script src='giphy.js'></script>
+```
+and access using
 ```JavaScript
-giphy.gifs({
-	ids: [
-		'xTiTnhJJ6xg5e1FgD6',
-		'xTiTnmMja0SoALNSpO'
-	],
-	rating: 'y',
-	fmt: 'json'
-},
-success,
-error);
+window.Giphy
 ```
 
-Translate: [https://github.com/Giphy/GiphyAPI#translate-endpoint](https://github.com/Giphy/GiphyAPI#translate-endpoint)
-
+Then initialise with an API key:
 ```JavaScript
-giphy.translate({
-	s: 'good job',
-	rating: 'y',
-	fmt: 'json'	
-},
-success,
-error);
+const giphy = new Giphy('dc6zaTOxFJmzC');
 ```
 
-Random: [https://github.com/Giphy/GiphyAPI#random-endpoint](https://github.com/Giphy/GiphyAPI#random-endpoint)
+**(do not use the example key seen here provided by giphy in production)**.
+
+## Endpoint methods with example objects
+
+In all examples, endpoint methods return a Promise. However, they can also accept two additional arguments for ```success``` and ```error``` callback functions -  e.g.
 
 ```JavaScript
 giphy.random({
-	rating: 'y',
-	fmt: 'json',
-	tag: 'chiptune'
+  rating: 'y',
+  fmt: 'json',
+  tag: 'chiptune'
 },
-success,
-error);
+(response) => {
+  console.log(response);
+},
+(error) => {
+  console.error(error);
+});
 ```
 
-Trending GIFs: [https://github.com/Giphy/GiphyAPI#trending-gifs-endpoint](https://github.com/Giphy/GiphyAPI#trending-gifs-endpoint)
+Please see the example page by running ```npm run dev```or the [GitHub Pages site](http://2xaa.github.io/giphy.js/) for a working example.
+
+### Gif API
+
+Search: [https://developers.giphy.com/docs/#operation--gifs-search-get](https://developers.giphy.com/docs/#operation--gifs-search-get)
 
 ```JavaScript
-giphy.trending(success, error);
+giphy.search({
+  q: 'chiptune',
+  offset: 0,
+  rating: 'y',
+  fmt: 'json',
+  limit: 10
+})
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error));
+```
+
+Get GIF by ID: [https://developers.giphy.com/docs/#operation--gifs--gif_id--get](https://developers.giphy.com/docs/#operation--gifs--gif_id--get)
+
+```JavaScript
+giphy.gif({
+  id: 'xTiTnhJJ6xg5e1FgD6',
+  rating: 'y',
+  fmt: 'json'
+})
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error));
+```
+
+Get GIFs by ID: [https://developers.giphy.com/docs/#operation--gifs-get](https://developers.giphy.com/docs/#operation--gifs-get)
+
+```JavaScript
+giphy.gifs({
+  ids: [
+    'xTiTnhJJ6xg5e1FgD6',
+    'xTiTnmMja0SoALNSpO'
+  ],
+  rating: 'y',
+  fmt: 'json'
+})
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error));
+```
+
+Translate: [https://developers.giphy.com/docs/#operation--gifs-translate-get](https://developers.giphy.com/docs/#operation--gifs-translate-get)
+
+```JavaScript
+giphy.translate({
+  s: 'good job',
+  rating: 'y',
+  fmt: 'json'
+})
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error));
+```
+
+Random: [https://developers.giphy.com/docs/#operation--gifs-random-get](https://developers.giphy.com/docs/#operation--gifs-random-get)
+
+```JavaScript
+giphy.random({
+  rating: 'y',
+  fmt: 'json',
+  tag: 'chiptune'
+})
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error));
+```
+
+Trending GIFs: [https://developers.giphy.com/docs/#operation--gifs-trending-get](https://developers.giphy.com/docs/#operation--gifs-trending-get)
+
+```JavaScript
+giphy.trending(success, error)
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error));
 ```
 
 ### Sticker API
 
-STICKER Search: [https://github.com/Giphy/GiphyAPI#sticker-search-endpoint](https://github.com/Giphy/GiphyAPI#sticker-search-endpoint)
+STICKER Random (formerly Roulette): [https://developers.giphy.com/docs/#operation--stickers-random-get](https://developers.giphy.com/docs/#operation--stickers-random-get)
+
+```JavaScript
+giphy.stickers.random({
+  q: 'chiptune',
+  rating: 'y',
+  fmt: 'json'
+})
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error));
+```
+
+STICKER Search: [https://developers.giphy.com/docs/#operation--stickers-search-get](https://developers.giphy.com/docs/#operation--stickers-search-get)
 
 ```JavaScript
 giphy.stickers.search({
-	q: 'chiptune',
-	limit: 10,
-	offset: 0,
-	rating: 'y',
-	fmt: 'json'
-},
-success,
-error);
+  q: 'chiptune',
+  limit: 10,
+  offset: 0,
+  rating: 'y',
+  fmt: 'json'
+})
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error));
 ```
 
-STICKER Roulette (Random): [https://github.com/Giphy/GiphyAPI#sticker-roulette-random-endpoint](https://github.com/Giphy/GiphyAPI#sticker-roulette-random-endpoint)
-
-```JavaScript
-giphy.stickers.roulette({
-	q: 'chiptune',
-	rating: 'y',
-	fmt: 'json'
-},
-success,
-error);
-```
-
-STICKER Trending: [https://github.com/Giphy/GiphyAPI#sticker-trending-endpoint](https://github.com/Giphy/GiphyAPI#sticker-trending-endpoint)
-
-```JavaScript
-giphy.stickers.trending({
-	s: 'chiptune',
-	limit: 10,
-	offset: 0,
-	rating: 'y',
-	fmt: 'json'
-},
-success,
-error);
-```
-
-STICKER Translate: [https://github.com/Giphy/GiphyAPI#sticker-translate-endpoint](https://github.com/Giphy/GiphyAPI#sticker-translate-endpoint)
+STICKER Translate: [https://developers.giphy.com/docs/#operation--stickers-translate-get](https://developers.giphy.com/docs/#operation--stickers-translate-get)
 
 ```JavaScript
 giphy.stickers.translate({
-	s: 'good job',
-	rating: 'y',
-	fmt: 'json'
-},
-success,
-error);
+  s: 'good job',
+  rating: 'y',
+  fmt: 'json'
+})
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error));
+```
+
+STICKER Trending: [https://developers.giphy.com/docs/#operation--stickers-trending-get](https://developers.giphy.com/docs/#operation--stickers-trending-get)
+
+```JavaScript
+giphy.stickers.trending({
+  s: 'chiptune',
+  limit: 10,
+  offset: 0,
+  rating: 'y',
+  fmt: 'json'
+})
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error));
+```
+
+## Build instructions
+```Bash
+# install dependencies
+npm i # yarn
+
+# serve with hot reload at localhost:8080
+npm run dev # yarn run dev
+
+# build for production with minification
+npm run build # yarn run build
 ```
