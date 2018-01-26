@@ -30,7 +30,7 @@ const Giphy = require('giphy.js');
 
 To import Giphy.js in web, you can:
 ```HTML
-<script src='giphy.js'></script>
+<script src="https://unpkg.com/giphy.js@1.0.1/dist/giphy.min.js"></script>
 ```
 and access using
 ```JavaScript
