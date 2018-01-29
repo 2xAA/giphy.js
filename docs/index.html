@@ -81,7 +81,6 @@
     <script src="./codemirror/codemirror.js"></script>
     <script src="./codemirror/javascript.js"></script>
     <script src="./formatJSON.js"></script>
-    <!-- <script src="../giphy.js"></script> -->
   </head>
 
   <body>
@@ -101,8 +100,6 @@
     <section class="main">
       <div class="wrap">
         <div class="pure-g">
-
-
           <div class="main-content pure-u-1-1 pure-u-md-2-5 pure-u-lg-1-3">
             <h2>Requests</h2>
             <div class="pure-form">
@@ -131,7 +128,6 @@
               <textarea class="pure-input-1-1" readonly></textarea>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -149,10 +145,10 @@
           maxHighlightLength: Infinity,
           matchBrackets: true,
           autoCloseBrackets: true,
-          mode: "application/ld+json",
+          mode: 'application/ld+json',
           viewportMargin: Infinity
         });
-      editor.setOption("theme", 'solarized dark');
+      editor.setOption('theme', 'solarized dark');
 
       function success(r) {
         var data = r.data;

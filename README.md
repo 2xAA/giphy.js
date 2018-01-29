@@ -50,16 +50,13 @@ In all examples, endpoint methods return a Promise. However, they can also accep
 
 ```JavaScript
 giphy.random({
-  rating: 'y',
-  fmt: 'json',
-  tag: 'chiptune'
-},
-(response) => {
-  console.log(response);
-},
-(error) => {
-  console.error(error);
-});
+    rating: 'y',
+    fmt: 'json',
+    tag: 'chiptune'
+  },
+  response => console.log,
+  error => console.error
+);
 ```
 
 Please see the example page by running ```npm run dev```or the [GitHub Pages site](http://2xaa.github.io/giphy.js/) for a working example.
@@ -76,8 +73,8 @@ giphy.search({
   fmt: 'json',
   limit: 10
 })
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error));
+  .then(response => console.log)
+  .catch(error => console.error);
 ```
 
 Get GIF by ID: [https://developers.giphy.com/docs/#operation--gifs--gif_id--get](https://developers.giphy.com/docs/#operation--gifs--gif_id--get)
@@ -88,8 +85,8 @@ giphy.gif({
   rating: 'y',
   fmt: 'json'
 })
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error));
+  .then(response => console.log)
+  .catch(error => console.error);
 ```
 
 Get GIFs by ID: [https://developers.giphy.com/docs/#operation--gifs-get](https://developers.giphy.com/docs/#operation--gifs-get)
@@ -103,8 +100,8 @@ giphy.gifs({
   rating: 'y',
   fmt: 'json'
 })
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error));
+  .then(response => console.log)
+  .catch(error => console.error);
 ```
 
 Translate: [https://developers.giphy.com/docs/#operation--gifs-translate-get](https://developers.giphy.com/docs/#operation--gifs-translate-get)
@@ -115,8 +112,8 @@ giphy.translate({
   rating: 'y',
   fmt: 'json'
 })
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error));
+  .then(response => console.log)
+  .catch(error => console.error);
 ```
 
 Random: [https://developers.giphy.com/docs/#operation--gifs-random-get](https://developers.giphy.com/docs/#operation--gifs-random-get)
@@ -127,16 +124,16 @@ giphy.random({
   fmt: 'json',
   tag: 'chiptune'
 })
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error));
+  .then(response => console.log)
+  .catch(error => console.error);
 ```
 
 Trending GIFs: [https://developers.giphy.com/docs/#operation--gifs-trending-get](https://developers.giphy.com/docs/#operation--gifs-trending-get)
 
 ```JavaScript
 giphy.trending(success, error)
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error));
+  .then(response => console.log)
+  .catch(error => console.error);
 ```
 
 ### Sticker API
@@ -149,8 +146,8 @@ giphy.stickers.random({
   rating: 'y',
   fmt: 'json'
 })
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error));
+  .then(response => console.log)
+  .catch(error => console.error);
 ```
 
 STICKER Search: [https://developers.giphy.com/docs/#operation--stickers-search-get](https://developers.giphy.com/docs/#operation--stickers-search-get)
@@ -163,8 +160,8 @@ giphy.stickers.search({
   rating: 'y',
   fmt: 'json'
 })
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error));
+  .then(response => console.log)
+  .catch(error => console.error);
 ```
 
 STICKER Translate: [https://developers.giphy.com/docs/#operation--stickers-translate-get](https://developers.giphy.com/docs/#operation--stickers-translate-get)
@@ -175,8 +172,8 @@ giphy.stickers.translate({
   rating: 'y',
   fmt: 'json'
 })
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error));
+  .then(response => console.log)
+  .catch(error => console.error);
 ```
 
 STICKER Trending: [https://developers.giphy.com/docs/#operation--stickers-trending-get](https://developers.giphy.com/docs/#operation--stickers-trending-get)
@@ -189,8 +186,8 @@ giphy.stickers.trending({
   rating: 'y',
   fmt: 'json'
 })
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error));
+  .then(response => console.log)
+  .catch(error => console.error);
 ```
 
 ## Build instructions
