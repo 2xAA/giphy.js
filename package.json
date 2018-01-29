@@ -5,11 +5,11 @@
   "main": "./src/index.js",
   "browser": "./dist/giphy.js",
   "directories": {
-    "example": "example"
+    "docs": "docs"
   },
   "scripts": {
     "start": "npm run start",
-    "dev": "webpack-dev-server --content-base ./example/",
+    "dev": "webpack-dev-server --content-base ./docs/",
     "build": "webpack && uglifyjs ./dist/giphy.js -c -m -o ./dist/giphy.min.js --source-map",
     "prepublishOnly": "npm run build"
   },
