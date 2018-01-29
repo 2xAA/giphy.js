@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "npm run start",
-    "dev": "webpack-dev-server --content-base ./docs/ --output-public-path /giphy.js/dist/",
+    "dev": "webpack-dev-server --content-base ./docs/",
     "build": "webpack && uglifyjs ./dist/giphy.js -c -m -o ./dist/giphy.min.js --source-map",
     "prepublishOnly": "npm run build"
   },
